@@ -15,12 +15,12 @@ BUNDLE_NAME = PanicPreferences
 
 THEOS_PACKAGE_SCHEME=rootless
 Panic_FILES = $(wildcard Sources/Tweak/*.m)
-Panic_LIBRARIES = libsubstrate
+Panic_LIBRARIES = substrate
 PanicPreferences_FILES = $(wildcard Sources/Preferences/*.m)
 PanicPreferences_RESOURCE_DIRS = Resources
 PanicPreferences_INSTALL_PATH = /var/jb/Library/PreferenceBundles
 PanicPreferences_PRIVATE_FRAMEWORKS = Preferences
-PanicPreferences_LIBRARIES = libsubstrate
+PanicPreferences_LIBRARIES = substrate
 
 include $(THEOS)/makefiles/common.mk
 include $(THEOS_MAKE_PATH)/bundle.mk
