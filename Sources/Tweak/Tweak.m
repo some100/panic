@@ -13,7 +13,7 @@ void GenericHook(Class class, SEL selector, IMP implementation, IMP *original) {
 	// For what it's worth, I hate writing nested code.
 	// Sorry for anyone reading this.
 	if (!LBHookMessage) {
-		void *lb_handle = dlopen("/usr/lib/libblackjack.dylib", RTLD_NOW);
+		void *lb_handle = dlopen("/var/jb/usr/lib/libblackjack.dylib", RTLD_NOW);
 		if (lb_handle != NULL) {
 			LBHookMessage = dlsym(lb_handle, "LBHookMessage");
 

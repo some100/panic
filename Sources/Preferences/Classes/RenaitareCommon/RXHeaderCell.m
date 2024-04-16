@@ -23,7 +23,7 @@
 		[version.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:25].active = YES;
 		[version.centerYAnchor constraintEqualToAnchor:self.centerYAnchor constant:25].active = YES;
 
-		NSBundle *bundle = [NSBundle bundleWithPath:[NSString stringWithFormat:@"/Library/PreferenceBundles/%@.bundle", specifier.properties[@"bundleName"]]];
+		NSBundle *bundle = [NSBundle bundleWithPath:[NSString stringWithFormat:@"/var/jb/Library/PreferenceBundles/%@.bundle", specifier.properties[@"bundleName"]]];
 		UIImage *logo = [UIImage imageNamed:@"headerIcon" inBundle:bundle compatibleWithTraitCollection:nil];
 		UIImageView *icon = [[UIImageView alloc] initWithImage:logo];
 		icon.translatesAutoresizingMaskIntoConstraints = NO;
@@ -53,7 +53,7 @@
 	int status;
 
 	NSMutableArray<NSString *> *argsv0 = [NSMutableArray array];
-	for (NSString *string in @[ @"/usr/bin/dpkg-query", @"-Wf", infoQuery, identifier ]) {
+	for (NSString *string in @[ @"/var/jb/usr/bin/dpkg-query", @"-Wf", infoQuery, identifier ]) {
 		[argsv0 addObject:[NSString stringWithFormat:@"'%@'", [string stringByReplacingOccurrencesOfString:@"'" withString:@"\\'" options:NSRegularExpressionSearch range:NSMakeRange(0, string.length)]]];
 	}
 

@@ -7,12 +7,13 @@
 
 INSTALL_TARGET_PROCESSES = SpringBoard
 export ADDITIONAL_CFLAGS = -DTHEOS_LEAN_AND_MEAN -fobjc-arc --include-directory ./Include
-export TARGET = iphone:clang:14.4:9.0
+export TARGET = iphone:clang:14.5
 export ARCHS = arm64 arm64e
 
 TWEAK_NAME = Panic
 BUNDLE_NAME = PanicPreferences
 
+THEOS_PACKAGE_SCHEME=rootless
 Panic_FILES = $(wildcard Sources/Tweak/*.m)
 PanicPreferences_FILES = $(wildcard Sources/Preferences/*.m)
 PanicPreferences_RESOURCE_DIRS = Resources

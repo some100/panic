@@ -103,12 +103,12 @@
 		pid_t pid;
 
 		// Check to see if 'sbreload' exists, otherwise just respring via 'killall'
-		if ([[NSFileManager defaultManager] fileExistsAtPath:@"/usr/bin/sbreload"]) {
+		if ([[NSFileManager defaultManager] fileExistsAtPath:@"/var/jb/usr/bin/sbreload"]) {
 			const char* args[] = {"sbreload", NULL};
-			posix_spawn(&pid, "/usr/bin/sbreload", NULL, NULL, (char* const*)args, NULL);
+			posix_spawn(&pid, "/var/jb/usr/bin/sbreload", NULL, NULL, (char* const*)args, NULL);
 		} else {
 			const char* args[] = {"killall", "SpringBoard", NULL};
-			posix_spawn(&pid, "/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
+			posix_spawn(&pid, "/var/jb/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
 		}
 	}
 }
@@ -117,7 +117,7 @@
 	if (self.safemodeEnabled) {
 		pid_t pid;
 		const char* args[] = {"killall", "-SEGV", "SpringBoard", NULL};
-		posix_spawn(&pid, "/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
+		posix_spawn(&pid, "/var/jb/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
 	}
 }
 
